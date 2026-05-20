@@ -1,27 +1,10 @@
 FROM python:3.11-slim
 
-# установка ffmpeg и нужных пакетов
-RUN apt-get update && \
-apt-get install -y ffmpeg && \
-rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
-# копируем зависимость и устанавливаем
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# копируем код приложения
-COPY app.py .
-COPY models.py .
-COPY services/ services/
+COPY bot.py .
 
-# expose port
-EXPOSE 8000
-
-# environment variables (для Render они будут в Environment)
-ENV BOT_TOKEN=123456:ABCDEF
-ENV DATABASE_URL=postgresql://padel:padelpass@db:5432/padel
-
-# команда запуска
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "bot.py"]
