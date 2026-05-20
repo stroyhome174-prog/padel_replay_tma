@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Padel Replay</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+<h1>Padel Replay</h1>
+<p class="muted">Получите replay за последние 30 секунд</p>
+
+<div id="authStatus" class="status">Загрузка...</div>
+
+<select id="locationSelect">
+<option value="">Выберите локацию</option>
+</select>
+
+<button id="btnClip">Получить replay</button>
+
+<div class="status" id="status">Готово</div>
+
+<h2>Тарифы</h2>
+<button id="btnFree">Бесплатно (5 шт. с водяными знаками)</button>
+<button id="btnSingle">Разово 1 видео 50 ₽ с водяными знаками</button>
+<button id="btnUnlimited">400 ₽/мес безлимит без водяных знаков</button>
+<button id="btnVip">650 ₽/мес постоянный доступ к камере</button>
+
+<h2>Хранение видео</h2>
+<button id="btnStorage">Показать все видео</button>
+</div>
+</div>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
