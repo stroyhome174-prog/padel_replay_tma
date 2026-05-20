@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+db:
+image: postgres:15
+environment:
+POSTGRES_USER: padel
+POSTGRES_PASSWORD: padelpass
+POSTGRES_DB: padel
+volumes:
+- pg/var/lib/postgresql/data
+
+backend:
+build: ./backend
+env_file: .env
+depends_on:
+- db
+ports:
+- "8000:8000"
+volumes:
+- clip-output:/app/output
+
+bot:
+build: ./bot
+env_file: .env
+depends_on:
+- backend
+
+miniapp:
+build: ./miniapp
+ports:
+- "3000:80"
+
+volumes:
+pg
+clip-output:

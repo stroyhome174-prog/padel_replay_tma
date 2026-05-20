@@ -1,0 +1,32 @@
+## 3. Файл `.gitignore` (в корне)
+
+Сохрани как **`.gitignore`** (точка спереди, без расширения):
+
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+env.bak/
+venv.bak/
+
+# IDE
+*.swp
+*.swo
+.DS_Store
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.*
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
